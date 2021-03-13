@@ -11,6 +11,11 @@ const list = (offset=0, limit=20) => {
     );
 }
 
+const info = (url) => {
+  return api.get(url);
+}
+
 export const service = {
-  list
+  list,
+  info
 }
