@@ -2,17 +2,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin-left: 250;
     margin-right: 250;
+    margin-bottom: 50;
   }
 
   #cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 50px;
   }
