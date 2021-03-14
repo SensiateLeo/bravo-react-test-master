@@ -6,9 +6,16 @@ import './PokeColumn.css';
 const PokeColumn = ({initialPokemon}) => {
 
     const [ initial, setInitial ] = useState([]);
+    const [ prevElement, setPrevElement ] = useState();
 
     const getData = (e) => {
         setInitial(e.dragData);
+        if(prevElement !== undefined) {
+            prevElement.style.visibility = 'visible';
+        }
+        setPrevElement(e.containerElem);
+        e.containerElem.style.visibility = 'hidden';
+        
     }
 
     return(
@@ -17,7 +24,10 @@ const PokeColumn = ({initialPokemon}) => {
                 <ul class="initialPokemon">
                     {
                         initialPokemon
-                        .filter(pokemon => pokemon.name === "charmander" || pokemon.name === "bulbasaur" || pokemon.name === "squirtle")
+                        .filter(pokemon => 
+                            pokemon.name === "charmander" || 
+                            pokemon.name === "bulbasaur" || 
+                            pokemon.name === "squirtle")
                         .map((pokemon, idx) => {
                             return(
                                 <DragDropContainer targetKey="initial" dragData={pokemon}>
