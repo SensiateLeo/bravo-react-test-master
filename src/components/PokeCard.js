@@ -8,14 +8,17 @@ const PokeCard = ({pokemon}) => {
     const [info, setInfo ] = useState({
         name:"",
         sprites: {
-            front_default: ""
-        }
+            front_default: "",
+            back_default: ""
+        },
+        id: "",
+        weight: "",
+        height: ""
     });
 
     const getPokeInfo = (url) => {
         service.info(url).then((res) => {
             setInfo(res.data);
-            console.log(info.types);
         })
         .catch((error) => {
             console.log(error);
@@ -24,10 +27,10 @@ const PokeCard = ({pokemon}) => {
 
     useEffect(() => {
         getPokeInfo(pokemon.url);
-    })
+    }, [pokemon]);
 
     return(
-        <Card id="card">
+        <Card id="card" variant="outlined">
             <CardHeader
             title={info.name}
             />
