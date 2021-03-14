@@ -5,16 +5,9 @@ import './PokeCard.css'
 
 const PokeCard = ({pokemon}) => {
 
-    const [info, setInfo ] = useState({
-        name:"",
-        sprites: {
-            front_default: "",
-            back_default: ""
-        },
-        id: "",
-        weight: "",
-        height: ""
-    });
+    const pokeballImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png";
+
+    const [info, setInfo ] = useState([]);
 
     const getPokeInfo = (url) => {
         service.info(url).then((res) => {
@@ -26,27 +19,30 @@ const PokeCard = ({pokemon}) => {
     }
 
     useEffect(() => {
+        if(pokemon != []){
         getPokeInfo(pokemon.url);
+        }
     }, [pokemon]);
 
     return(
         <Card id="card" variant="outlined">
             <CardHeader
-            title={info.name}
+            title={info.name ? info.name : "Pokémon"}
             />
             <CardMedia>
-                <img src={info.sprites.front_default} alt="Front"></img>
-                <img src={info.sprites.back_default} alt="Back"></img>
+                <img src={info.sprites ? info.sprites.front_default : pokeballImage} alt="Front"></img>
+                <img src={info.sprites ? info.sprites.back_default : pokeballImage} alt="Back"></img>
             </CardMedia>
             <CardContent>
-            <Typography component="p">
-                ID: {info.id} <br/>
-                Height: {info.height} <br/>
-                Weight: {info.weight}
-            </Typography>
+                <Typography component="p">
+                    ID: {info.id  ? info.id : 0} <br/>
+                    {info.height  ? "Height: " + info.height : "Here you can see"} <br/>
+                    {info.weight  ? "Weight: " + info.weight : "your Pokémon info!"}
+                </Typography>
             </CardContent>
         </Card>
     )
+    
 }
 
 export default PokeCard;
