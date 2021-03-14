@@ -1,0 +1,45 @@
+.PokeColumn {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 250;
+    margin-right: 250;
+    margin-bottom: 50;
+  }
+
+  .initialPokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    list-style: none;
+    list-style-type: none;
+  }
+
+  .components {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+  }
+
+  .vl {
+    border-left: 6px solid red;
+    height: 300px;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
