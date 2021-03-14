@@ -19,7 +19,7 @@ const PokeCard = ({pokemon}) => {
     }
 
     useEffect(() => {
-        if(pokemon != []){
+        if(pokemon !== []){
         getPokeInfo(pokemon.url);
         }
     }, [pokemon]);
